@@ -90,20 +90,18 @@ mysql> desc MessageFromUser;
 
 ```mysql
 create table MessageFromUser(
-    id int unsigned primary key,
     Name text,
     Email text,
     Message text
 );
-mysql> desc UserInfo;
-+----------+--------------+------+-----+---------+----------------+
-| Field    | Type         | Null | Key | Default | Extra          |
-+----------+--------------+------+-----+---------+----------------+
-| id       | int unsigned | NO   | PRI | NULL    | auto_increment |
-| chathead | text         | YES  |     | NULL    |                |
-| username | varchar(16)  | YES  |     | NULL    |                |
-| posswd   | varchar(16)  | YES  |     | NULL    |                |
-+----------+--------------+------+-----+---------+----------------+
+mysql> desc MessageFromUser;
++---------+------+------+-----+---------+-------+
+| Field   | Type | Null | Key | Default | Extra |
++---------+------+------+-----+---------+-------+
+| Name    | text | YES  |     | NULL    |       |
+| Email   | text | YES  |     | NULL    |       |
+| Message | text | YES  |     | NULL    |       |
++---------+------+------+-----+---------+-------+
 ```
 
 ---

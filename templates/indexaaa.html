@@ -56,6 +56,39 @@
 
 <body>
 
+<h2>Demo of SocketIO</h2>
+<div id="t"></div>
+<script>
+$(document).ready(function () {
+    namespace = '/dcenter';
+    var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+    socket.on('dcenter', function (res) {
+        var t = res.data;
+        window.alert(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+        if (t) {
+            $("#t").append(t).append('<br/>');
+        }
+
+    });
+});
+</script>
+	<h2>Demo of SocketIO</h2>
+<div id="c"></div>
+<script>
+$(document).ready(function () {
+    namespace = '/dcenter';
+    var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+    socket.on('dcenter', function (res) {
+        var t = res.data;
+        window.alert(t);
+        if (t) {
+            $("#c").append(t).append('<br/>');
+        }
+
+    });
+});
+</script>
+
 	<div class="fh5co-loader"></div>
 
 	<div id="page">
@@ -192,7 +225,7 @@
 								<div id="scroll" class="scroll-container">
 									<div id="chatshowarea" class="scroll-content">
 
-										<div class="sender col-md-12">
+										<div class="sender">
 											<div>
 												<img src="{{ url_for('static', filename='images/blog-1.jpg') }}" width="50" height="50">
 											</div>
@@ -202,7 +235,121 @@
 											</div>
 										</div>
 										<!-- Right -->
-										<div class="receiver col-md-14">
+										<div class="receiver">
+											<div>
+												<img src="{{ url_for('static', filename='images/img_bg_4.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="right_triangle"></div>
+												<span> hello world </span>
+											</div>
+										</div>
+										<div class="sender">
+											<div>
+												<img src="{{ url_for('static', filename='images/blog-1.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="left_triangle"></div>
+												<span> hello, man! </span>
+											</div>
+										</div>
+										<!-- Right -->
+										<div class="receiver">
+											<div>
+												<img src="{{ url_for('static', filename='images/img_bg_4.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="right_triangle"></div>
+												<span> hello world </span>
+											</div>
+										</div>
+										<div class="sender">
+											<div>
+												<img src="{{ url_for('static', filename='images/blog-1.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="left_triangle"></div>
+												<span> hello, man! </span>
+											</div>
+										</div>
+										<!-- Right -->
+										<div class="receiver">
+											<div>
+												<img src="{{ url_for('static', filename='images/img_bg_4.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="right_triangle"></div>
+												<span> hello world </span>
+											</div>
+										</div>
+										<div class="sender">
+											<div>
+												<img src="{{ url_for('static', filename='images/blog-1.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="left_triangle"></div>
+												<span> hello, man! </span>
+											</div>
+										</div>
+										<!-- Right -->
+										<div class="receiver">
+											<div>
+												<img src="{{ url_for('static', filename='images/img_bg_4.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="right_triangle"></div>
+												<span> hello world </span>
+											</div>
+										</div>
+										<div class="sender">
+											<div>
+												<img src="{{ url_for('static', filename='images/blog-1.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="left_triangle"></div>
+												<span> hello, man! </span>
+											</div>
+										</div>
+										<!-- Right -->
+										<div class="receiver">
+											<div>
+												<img src="{{ url_for('static', filename='images/img_bg_4.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="right_triangle"></div>
+												<span> hello world </span>
+											</div>
+										</div>
+										<div class="sender">
+											<div>
+												<img src="{{ url_for('static', filename='images/blog-1.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="left_triangle"></div>
+												<span> hello, man! </span>
+											</div>
+										</div>
+										<!-- Right -->
+										<div class="receiver">
+											<div>
+												<img src="{{ url_for('static', filename='images/img_bg_4.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="right_triangle"></div>
+												<span> hello world </span>
+											</div>
+										</div>
+										<div class="sender">
+											<div>
+												<img src="{{ url_for('static', filename='images/blog-1.jpg') }}" width="50" height="50">
+											</div>
+											<div>
+												<div class="left_triangle"></div>
+												<span> hello, man! </span>
+											</div>
+										</div>
+										<!-- Right -->
+										<div class="receiver">
 											<div>
 												<img src="{{ url_for('static', filename='images/img_bg_4.jpg') }}" width="50" height="50">
 											</div>
@@ -213,7 +360,6 @@
 										</div>
 
 
-
 									</div>
 								</div>
 
@@ -221,6 +367,18 @@
 						</div>
 
 					</div>
+					<script>
+						$(document).ready(function () {
+    namespace = '/dcenter';
+    var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+    socket.on('dcenter', function (res) {
+    window.alert(location.protocol + '//' + document.domain + ':' + location.port+'/contact' + namespace)
+        var popContent ='<div class="receiver"><div><img src="static/images/img_bg_4.jpg" width="50" height="50"></div><div><div class="right_triangle"></div><span>'+
+        res+'</span></div></div>';
+        $("#chatshowarea").append(popContent);
+    });
+});
+					</script>
 					<HR style="FILTER:alpha(opacity=100,finishopacity=0,style=2)" width="100%" color="#F5FFFA" SIZE="10">
 					<div class="col-md-12 animate-box">
 						<p><textarea id="chatinputarea" class="form-control" cols="30" rows="1" placeholder="input.."></textarea>

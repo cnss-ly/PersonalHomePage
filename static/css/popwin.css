@@ -2,31 +2,17 @@
                  margin: 0px;
                  padding: 0px;
              }
-             /* 弹出登陆框按钮 */
-             #popwin-header{
-                 text-align: center;
-                 height: 30px;
-                 line-height: 30px;
-             }
-             #popwin-header a{
-                 font-size: 24px;
-                 text-decoration: none;
-                 color: black;
-             }
 
              /* 登陆框主体 */
              .popwin{
-                 position: absolute;
                  width: 412px;
                  height: 204px;
                  z-index: 9999;
                  display: none;
                  background-color: white;
                  /* 这里要注意绝对定位的盒子怎么在屏幕显示居中 */
-                 left: 50%;
-                 margin-left: -206px;
-                 margin-top: 142px;
-                 border: 1px solid gray;
+                 position: absolute; left: 50%;
+                 transform: translate(-50%, 70%);
              }
              /* 登陆框标题 */
              .popwin-title{
@@ -79,11 +65,10 @@
                  border: 1px solid gray;
                  background-color: white;
                  margin-left: 120px;
-
              }
 
              /* 遮盖层 */
-             .bg{
+             /*.bg{
                  background-color: #000;
                  width: 100%;
                  height: 100%;
@@ -93,4 +78,4 @@
                  -webkit-opacity: 0.3;
                  -moz-opacity: 0.3;
                  display: none;
-             }
+             }*/

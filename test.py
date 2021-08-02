@@ -1,26 +1,27 @@
 import pymysql
+from database_config import connectDatabase,executeInsertsql,executeLookupsql
 
-mysql_info = pymysql.connect(host="localhost",
-                             user="root",
-                             password="020509",
-                             database="PersonalHomePage",
-                             charset="utf8")
-cursor = mysql_info.cursor()
-
-
-insert_sql = """
-select * from MessageFromUser;
-"""
-cursor.execute(insert_sql)
-
-
-select_sql = """
-select * from MessageFromUser;
-"""
-cursor.execute(select_sql)
-a = cursor.fetchone()
-print(a)
-mysql_info.close()
+# mysql_info = pymysql.connect(host="localhost",
+#                              user="root",
+#                              password="020509",
+#                              database="PersonalHomePage",
+#                              charset="utf8")
+# cursor = mysql_info.cursor()
+#
+#
+# insert_sql = """
+# select * from MessageFromUser;
+# """
+# cursor.execute(insert_sql)
+#
+#
+# select_sql = """
+# select * from MessageFromUser;
+# """
+# cursor.execute(select_sql)
+# a = cursor.fetchone()
+# print(a)
+# mysql_info.close()
 
 
 # .like{
@@ -52,3 +53,51 @@ mysql_info.close()
 
 
 # <div class="desc col-md-5"><h7>&nbsp;</h7></div>
+
+look_sql = f"""
+                    select
+                    *
+                    from
+                    UserInfo
+                    where
+                    username="cnss"
+                    """
+result = executeLookupsql(look_sql)[0]
+print(result)
+# if result!='':
+#     if result
+#         executeInsertsql(insert_sql)
+
+
+
+
+# @web.route('/getChatinput', methods=["get", "post"])
+# def getChatinput():
+#     chatinput = request.values.get("chatinput")
+#     insert_sql = f'''
+#                 insert into
+#                 ChatContent
+#                 (content)
+#                 value
+#                 (\"{chatinput}\");
+#                 '''
+#     executeInsertsql(insert_sql)
+#     print(chatinput)
+#     return '1'
+#
+#
+# @web.route('/getContent', methods=["get", "post"])
+# def getContent():
+#     num = request.values.get("num")
+#     look_sql = f'''
+#                 select
+#                 *
+#                 from
+#                 ChatContent
+#                 where
+#                 num={num};
+#                 '''
+#     concent = executeLookupsql(look_sql)
+#     print(concent[0])
+#     return concent[0][1]
+

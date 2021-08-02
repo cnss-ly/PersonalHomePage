@@ -10,6 +10,18 @@ height:auto;
 }
 /*-------------------------------------------------*/
 
+level{
+display:inline-block;
+height:55px;
+}
+.level1{
+width: 30px;
+background:green;
+}
+.level2{
+width: 30px;
+background:red;
+}
 
 .one{
 width: 70px;
@@ -107,7 +119,7 @@ width:300px;
             float: left;
             margin: 0 20px 10px 15px;
             padding: 10px 10px 10px 0px;
-            border-radius:7px;
+            border-radius:9px;
         }
 
         .receiver div:first-child img,
@@ -127,7 +139,7 @@ width:300px;
             background-color: gold;
             margin: 0 10px 10px 20px;
             padding: 10px 0px 10px 10px;
-            border-radius:7px;
+            border-radius:9px;
         }
 
         .left_triangle{
