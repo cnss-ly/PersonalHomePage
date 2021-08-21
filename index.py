@@ -1,16 +1,16 @@
 from flask import Flask, render_template, request, jsonify
-from database_config import connectDatabase, executeInsertsql, executeLookupsql
-from flask_socketio import SocketIO, emit,send
+from database_config import executeInsertsql, executeLookupsql
+from flask_socketio import SocketIO, emit
+import base64
+from PIL import Image
+import os
 
 web = Flask(__name__)
 web.config['SECRET_KEY'] = 'secret_key'
 socketio = SocketIO()
-socketio.init_app(web,cors_allowed_origins='*')
+socketio.init_app(web, cors_allowed_origins='*')
 name_space = '/chat'
 
-# @web.route('/')
-# def indexaaa():
-#     return render_template('indexaaa.html')
 
 @web.route('/index')
 def index():
@@ -64,7 +64,6 @@ def getMessage():
 def signIn():
     loginusername = request.values.get("loginusername")
     loginpossword = request.values.get("loginpossword")
-    replay = jsonify({'username': loginusername})
     if '' not in [loginusername, loginpossword]:
         print(loginusername, loginpossword)
         look_sql = f"""
@@ -79,8 +78,16 @@ def signIn():
         if result:
             result = result[0]
             if result[3] == loginpossword:
+                update_sql = f"""
+                                    update 
+                                    UserInfo
+                                    set
+                                    loginstatus=1
+                                    where
+                                    username=\"{loginusername}\"
+                                    """
+                executeInsertsql(update_sql)
                 print('signin successful')
-                return replay
             else:
                 print('possword error')
                 return '0'
@@ -88,51 +95,130 @@ def signIn():
             insert_sql = f"""
                         insert into 
                         UserInfo
-                        (username,posswd)
+                        (username,posswd,loginstatus)
                         value
-                        (\"{loginusername}\",\"{loginpossword}\");
+                        (\"{loginusername}\",\"{loginpossword}\",1);
                         """
             executeInsertsql(insert_sql)
             print('new user')
-            return replay
+            look_sql = f"""
+                                select
+                                *
+                                from
+                                UserInfo
+                                where
+                                username=\"{loginusername}\"
+                                """
+            result = executeLookupsql(look_sql)
+            result = result[0]
+
+        find_sql = f"""
+                    select
+                    *
+                    from
+                    ChatContent
+                    order by
+                    num
+                    desc limit
+                    10
+                    """
+        chat_100 = executeLookupsql(find_sql)
+        print(chat_100)
+
+        replay = jsonify({'id': result[0],'username': result[2], 'infoyouxiang': result[5], 'infoweizhi': result[4],
+                          'infoshouji': result[6], 'chathead': result[1], 'chat_100': chat_100})
+        return replay
     else:
         return ''
 
 
+@web.route('/Info', methods=["get", "post"])
+def Info():
+    loginusername = request.values.get("loginusername")
+    infoyouxiang = request.values.get("infoyouxiang")
+    infoweizhi = request.values.get("infoweizhi")
+    infoshouji = request.values.get("infoshouji")
+    replay = jsonify({'infoyouxiang': infoyouxiang, 'infoweizhi': infoweizhi, 'infoshouji': infoshouji})
+    if '' not in [infoyouxiang, infoweizhi, infoshouji]:
+        print(infoyouxiang, infoweizhi, infoshouji)
+        update_sql = f"""
+                        update 
+                        UserInfo
+                        set
+                        address=\"{infoweizhi}\",email=\"{infoyouxiang}\",phone=\"{infoshouji}\"
+                        where
+                        username=\"{loginusername}\"
+                        """
+        executeInsertsql(update_sql)
+        return replay
+    else:
+        return ''
+
+
+@web.route('/Photo', methods=["get", "post"])
+def Photo():
+    try:
+        photo_base64 = request.values.get("photo_base64")
+        username = request.values.get("username")
+        look_sql = f"""
+                            select
+                            *
+                            from
+                            UserInfo
+                            where
+                            username=\"{username}\"
+                            """
+        id = executeLookupsql(look_sql)[0][0]
+        # print(photo_base64[:50])
+        photo_base64 = photo_base64.split('base64,', 1)[1]
+        # print(photo_base64[:50])
+        photo = base64.b64decode(photo_base64)
+        save = open('static/ChatHead/{}.jpg'.format(id), 'wb')
+        save.write(photo)
+        update_sql = f"""
+                    update 
+                    UserInfo
+                    set
+                    chathead=\"{id}.jpg\"
+                    where
+                    username=\"{username}\"
+                    """
+        executeInsertsql(update_sql)
+        return '1'
+    except:
+        return '0'
+
+
 @socketio.on('chatinput', namespace=name_space)
 def mtest_message(message):
-    print(message)
+    username = message['username']
+    content = message['content']
+    chathead = message['chathead']
+    look_sql = f"""
+                select 
+                *
+                from
+                UserInfo
+                where
+                username=\"{username}\"
+                """
+    result = executeLookupsql(look_sql)[0]
+    userid = result[0]
+    userhead = result[1]
+    print(userid, '|', username, '|', content)
+    insert_sql = f"""
+                insert into
+                ChatContent
+                (id,username,content,chathead)
+                value
+                (\"{userid}\",\"{username}\",\"{content}\",\"{chathead}\")
+                """
+    # print(insert_sql)
+    executeInsertsql(insert_sql)
     event_name = 'showchatinput'
-    emit(event_name, message['content'], broadcast=True, namespace=name_space)
-
-
-# @web.route('/push')
-# def push_once():
-#     event_name = 'dcenter'
-#     broadcasted_data = {'data': "test message!"}
-#     emit(event_name, broadcasted_data, broadcast=True, namespace=name_space)
-#     return 'done!'
-#
-#
-# @socketio.on("connect",namespace=name_space)
-# def handle_connect():
-#     print("server has connected")
-#
-# @socketio.on('disconnect', namespace=name_space)
-# def disconnect_msg():
-#     print('client disconnected.')
-
-
-
-
-# @socketio.on('my_event')
-# def my_event(content):
-#     print("服务器已经接收到消息：" + content)
-#     # emit("my_response", "服务器已经接收到消息：" + message["data"], broadcast=True)
-#     event_name = 'dcenter'
-#     broadcasted_data = {'data': "test message!"}
-#     socketio.emit(event_name, broadcasted_data, broadcast=False, namespace=name_space)
+    emit(event_name, {'userhead': userhead, 'content': content, 'username': username}, broadcast=True,
+         namespace=name_space)
 
 
 if __name__ == '__main__':
-    socketio.run(web, host="0.0.0.0", port=5000,debug=True)
+    socketio.run(web, host="0.0.0.0", port=5000, debug=True)

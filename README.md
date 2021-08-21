@@ -70,38 +70,73 @@
 
 ```mysql
 create table UserInfo(
-    id int unsigned primary key auto_increment,
- 	chathead text,
- 	username varchar(16),
- 	posswd varchar(16)
-);
-mysql> desc MessageFromUser;
-+---------+--------------+------+-----+---------+-------+
-| Field   | Type         | Null | Key | Default | Extra |
-+---------+--------------+------+-----+---------+-------+
-| id      | int unsigned | NO   | PRI | NULL    |       |
-| Name    | text         | YES  |     | NULL    |       |
-| Email   | text         | YES  |     | NULL    |       |
-| Message | text         | YES  |     | NULL    |       |
-+---------+--------------+------+-----+---------+-------+
+    id int(4) unsigned primary key auto_increment comment '用户唯一id',
+ 	chathead varchar(50) default "nologin.jpg" comment '用户头像',
+ 	username varchar(16) not null comment '用户名',
+ 	posswd varchar(16) not null comment '密码',
+    address varchar(100) default "None" comment '用户地址',
+    email varchar(32) default "None" comment '用户邮箱',
+    phone varchar(16) default "None" comment '手机号',
+    loginstatus int(1) not null default '0' comment '登录状态'
+)character set = utf8;
+
+mysql> desc UserInfo;
++-------------+--------------+------+-----+-------------+----------------+
+| Field       | Type         | Null | Key | Default     | Extra          |
++-------------+--------------+------+-----+-------------+----------------+
+| id          | int unsigned | NO   | PRI | NULL        | auto_increment |
+| chathead    | varchar(50)  | YES  |     | nologin.jpg |                |
+| username    | varchar(16)  | NO   |     | NULL        |                |
+| posswd      | varchar(16)  | NO   |     | NULL        |                |
+| address     | varchar(100) | YES  |     | None        |                |
+| email       | varchar(32)  | YES  |     | None        |                |
+| phone       | varchar(16)  | YES  |     | None        |                |
+| loginstatus | int          | NO   |     | 0           |                |
++-------------+--------------+------+-----+-------------+----------------+
 ```
 
 ---
 
 ```mysql
 create table MessageFromUser(
-    Name text,
-    Email text,
-    Message text
-);
+    Name varchar(16) comment '名字',
+    Email varchar(32) comment '邮箱',
+    Message varchar(255) comment '信息内容'
+)character set = utf8;
+
 mysql> desc MessageFromUser;
-+---------+------+------+-----+---------+-------+
-| Field   | Type | Null | Key | Default | Extra |
-+---------+------+------+-----+---------+-------+
-| Name    | text | YES  |     | NULL    |       |
-| Email   | text | YES  |     | NULL    |       |
-| Message | text | YES  |     | NULL    |       |
-+---------+------+------+-----+---------+-------+
++---------+--------------+------+-----+---------+-------+
+| Field   | Type         | Null | Key | Default | Extra |
++---------+--------------+------+-----+---------+-------+
+| Name    | varchar(16)  | YES  |     | NULL    |       |
+| Email   | varchar(32)  | YES  |     | NULL    |       |
+| Message | varchar(255) | YES  |     | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+```
+
+
+
+---
+
+```mysql
+create table ChatContent(
+    num int(4) unsigned primary key auto_increment comment 'chat number',
+    id int(4) comment '用户唯一id',
+    username varchar(16) not null comment '用户名',
+    chathead varchar(50) default "nologin.jpg" comment '用户头像',
+    content varchar(100) comment '聊天内容'
+)character set = utf8;
+
+mysql> desc ChatContent;
++----------+--------------+------+-----+-------------+----------------+
+| Field    | Type         | Null | Key | Default     | Extra          |
++----------+--------------+------+-----+-------------+----------------+
+| num      | int unsigned | NO   | PRI | NULL        | auto_increment |
+| id       | int          | YES  |     | NULL        |                |
+| username | varchar(16)  | NO   |     | NULL        |                |
+| chathead | varchar(50)  | YES  |     | nologin.jpg |                |
+| content  | varchar(100) | YES  |     | NULL        |                |
++----------+--------------+------+-----+-------------+----------------+
 ```
 
 ---

@@ -1,0 +1,9 @@
+字段	类型	键	为空	默认	备注
+id	int	PRI	no		用户唯一索引
+name	varchar		no		用户昵称
+avatar_url	varchar		yes		头像地址
+password	varchar		yes		密码
+phone	varchar	UNI	yes		手机号
+created_at	timestamp		no		创建时间
+status   int                     no                 登录状态
+
