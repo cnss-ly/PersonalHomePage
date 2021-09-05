@@ -39,7 +39,12 @@ var info=document.getElementById('info');
              var infoBtn=document.getElementById('postblog');
              infoBtn.onclick=function(){
                  ajax_showBlog();
+                 if(info.style.display=="block"){
+                 info.style.display="none";
+                 }
+                 else{
                  info.style.display="block";
+                 }
                  return false;
              }
 //=================================================================================
