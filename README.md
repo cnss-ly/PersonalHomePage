@@ -1,3 +1,13 @@
+>使用说明
+
+要求python3.6及以上版本
+
+在主目录依次执行
+
+python install -r requirements
+
+python index.py
+
 > 已解决bug
 
 1. flask目录格式要求
