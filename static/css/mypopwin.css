@@ -1,0 +1,210 @@
+           *{
+                 margin: 0px;
+                 padding: 0px;
+             }
+
+             /* 登陆框主体 */
+             .popwin{
+                 width: 412px;
+                 height: 204px;
+                 z-index: 9999;
+                 display: none;
+                 background-color: white;
+                 /* 这里要注意绝对定位的盒子怎么在屏幕显示居中 */
+                 position: absolute; left: 50%;
+                 transform: translate(-50%, 70%);
+             }
+             /* 登陆框标题 */
+             .popwin-title{
+                 width: 100%;
+                 height: 20px;
+                 line-height: 40px;
+                 text-align: center;
+                 margin-bottom: 20px;
+                 cursor: move;
+             }
+             .popwin-title span a{
+                 text-decoration: none;
+                 border: 1px solid gray;
+                 font-size: 12px;
+                 color: black;
+                 border-radius: 20px;
+                 width: 40px;
+                 height: 40px;
+                 background-color: #fff;
+                 position: absolute;
+                 top: -20px;
+                 right: -20px;
+             }
+
+             /* 登陆表单 */
+             .popwin-input{
+                 margin: 10px 0px 20px 0px;
+             }
+             .popwin-input label{
+                 float: left;
+                 height: 35px;
+                 line-height: 35px;
+                 width: 90px;
+                 padding-left: 35px;
+                 text-align: right;
+                 font-size: 14px;
+             }
+             .popwin-input input.list-input{
+                 height: 35px;
+                 line-height: 35px;
+                 width: 250px;
+                 text-indent: 5px;
+                 margin-left:30px;
+             }
+             /* 登陆框登陆按钮 */
+             .popwinSubmit{
+                 width: 160px;
+                 height: 40px;
+                 text-align: center;
+                 border: 1px solid gray;
+                 background-color: white;
+                 margin-left: 120px;
+             }
+
+             /* 遮盖层 */
+             /*.bg{
+                 background-color: #000;
+                 width: 100%;
+                 height: 100%;
+                 top: 0px;
+                 position: fixed;
+                 opacity: 0.3;
+                 -webkit-opacity: 0.3;
+                 -moz-opacity: 0.3;
+                 display: none;
+             }*/
+
+/*===================================================================*/
+              .popinfowin{
+                 width: 412px;
+                 height: 270px;
+                 z-index: 9999;
+                 display: none;
+                 background-color: white;
+                 /* 这里要注意绝对定位的盒子怎么在屏幕显示居中 */
+                 position: absolute; left: 50%;
+                 transform: translate(-50%, 70%);
+             }
+             /* 登陆框标题 */
+             .popinfowin-title{
+                 width: 100%;
+                 height: 20px;
+                 line-height: 40px;
+                 text-align: center;
+                 margin-bottom: 20px;
+                 cursor: move;
+             }
+             .popinfowin-title span a{
+                 text-decoration: none;
+                 border: 1px solid gray;
+                 font-size: 12px;
+                 color: black;
+                 border-radius: 20px;
+                 width: 40px;
+                 height: 40px;
+                 background-color: #fff;
+                 position: absolute;
+                 top: -20px;
+                 right: -20px;
+             }
+
+             /* 登陆表单 */
+             .popinfowin-input{
+                 margin: 10px 0px 20px 0px;
+             }
+             .popinfowin-input label{
+                 float: left;
+                 height: 35px;
+                 line-height: 35px;
+                 width: 90px;
+                 padding-left: 35px;
+                 text-align: right;
+                 font-size: 14px;
+             }
+             .popinfowin-input input.list-input{
+                 height: 35px;
+                 line-height: 35px;
+                 width: 250px;
+                 text-indent: 5px;
+                 margin-left:30px;
+             }
+             /* 登陆框登陆按钮 */
+             .popinfowinSubmit{
+                 width: 160px;
+                 height: 40px;
+                 text-align: center;
+                 border: 1px solid gray;
+                 background-color: white;
+                 margin-left: 120px;
+             }
+
+
+/*===================================================================*/
+              .popbloginfo{
+
+                 display: none;
+                 background-color: white;
+                 /* 这里要注意绝对定位的盒子怎么在屏幕显示居中 position: absolute; left: 50%;
+                 transform: translate(-50%, -120%);
+                 z-index: 9999;width: 800px;
+                 height: 360px;*/
+
+             }
+             /* 登陆框标题 */
+             .popbloginfo-title{
+                 width: 100%;
+                 height: 20px;
+                 line-height: 40px;
+                 text-align: center;
+                 margin-bottom: 20px;
+                 cursor: move;
+             }
+             .popbloginfo-title span a{
+                 text-decoration: none;
+                 border: 1px solid gray;
+                 font-size: 12px;
+                 color: black;
+                 border-radius: 20px;
+                 width: 40px;
+                 height: 40px;
+                 background-color: #fff;
+                 position: absolute;
+                 top: -20px;
+                 right: -20px;
+             }
+
+             /* 登陆表单 */
+             .popbloginfo-input{
+                 margin: 10px 0px 20px 0px;
+             }
+             .popbloginfo-input label{
+                 float: left;
+                 height: 35px;
+                 line-height: 35px;
+                 width: 90px;
+                 padding-left: 35px;
+                 text-align: right;
+                 font-size: 14px;
+             }
+             .popbloginfo-input input.list-input{
+                 height: 35px;
+                 line-height: 35px;
+                 width: 250px;
+                 text-indent: 5px;
+                 margin-left:30px;
+             }
+             /* 登陆框登陆按钮 */
+             .popbloginfoSubmit{
+                 width: 140px;
+                 height: 40px;
+                 text-align: center;
+                 border: 1px solid gray;
+                 background-color: white;
+                 margin-left: 30px;
+             }

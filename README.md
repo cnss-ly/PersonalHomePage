@@ -137,7 +137,38 @@ mysql> desc ChatContent;
 | chathead | varchar(50)  | YES  |     | nologin.jpg |                |
 | content  | varchar(100) | YES  |     | NULL        |                |
 +----------+--------------+------+-----+-------------+----------------+
+
+
 ```
 
 ---
+
+```mysql
+create table BlogInfo(
+    num int(4) unsigned primary key auto_increment,
+    filename varchar(20),
+    theme varchar(50),
+	intro varchar(150),
+    vartime varchar(20),
+    upvote int(4) default 0,
+    pageview int(4) default 0,
+    content text
+)character set = utf8;
+
+mysql> desc BlogInfo;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| num      | int unsigned | NO   | PRI | NULL    | auto_increment |
+| filename | varchar(20)  | YES  |     | NULL    |                |
+| theme    | varchar(50)  | YES  |     | NULL    |                |
+| intro    | varchar(150) | YES  |     | NULL    |                |
+| vartime  | varchar(20)  | YES  |     | NULL    |                |
+| upvote   | int          | YES  |     | 0       |                |
+| pageview | int          | YES  |     | 0       |                |
+| content  | text         | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+```
+
+
 

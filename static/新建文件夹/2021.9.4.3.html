@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="icon" href="data:;base64,=">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="personalhomepage" />
+	<meta name="author" content="cnss" />
+
+	<!-- Animate.css -->
+<!--	<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}" />-->
+	<link rel="stylesheet" href="../css/animate.css" />
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="../css/icomoon.css" />
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="../css/bootstrap.css" />
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="../css/magnific-popup.css" />
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="../css/flexslider.css" />
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="../css/style.css" />
+	<!--		myicon-->
+	<link rel="stylesheet" href="../css/iconfont.css" />
+	<!-- Modernizr JS -->
+	<script src="../js/modernizr-2.6.2.min.js"></script>
+	<script src="../js/respond.min.js"></script>
+	<script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"></script>
+	<link rel="stylesheet" href="../css/mytypora.css" />
+
+
+
+</head>
+
+<body>
+
+	<div class="fh5co-loader"></div>
+
+	<div id="page">
+		<nav class="fh5co-nav" role="navigation">
+			<div class="container-wrap">
+				<div class="top-menu">
+					<div class="row">
+						<div class="col-xs-2">
+							<div id="fh5co-logo"><a href="../../index">CNSS</a></div>
+						</div>
+						<div class="col-xs-10 text-right menu-1">
+							<ul>
+<!--								<li><a href="index">Home</a></li>-->
+<!--								<li><a href="work">Work</a></li>-->
+								<li class="active"><a href="../../blog">Blog</a></li>
+<!--								<li class="has-dropdown">-->
+<!--									<a href="blog">Blog</a>-->
+<!--									<ul class="dropdown">-->
+<!--										<li><a href="#">Web Design</a></li>-->
+<!--										<li><a href="#">eCommerce</a></li>-->
+<!--										<li><a href="#">Branding</a></li>-->
+<!--										<li><a href="#">API</a></li>-->
+<!--									</ul>-->
+<!--								</li>-->
+<!--								<li><a href="about">About</a></li>-->
+								<li><a href="../../contact">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-wrap">
+<div class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h2 id='method'><span>method</span></h2><p><span>使用 </span><code>os.path.splitext(file)[0]</code><span> 可获得 </span><strong><span>文件名</span></strong><span> 。  使用 </span><code>os.path.splitext(file)[-1]</code><span> 可获得以 </span><code>.</code><span> 开头的 </span><strong><span>文件后缀名</span></strong><span> 。</span></p><h2 id='code'><span>code</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 6.5px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-def">os</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">file</span> <span class="cm-operator">=</span> <span class="cm-string">"Hello.py"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-error"># 获取前缀（文件名称）</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">assert</span> <span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">splitext</span>(<span class="cm-variable">file</span>)[<span class="cm-number">0</span>] <span class="cm-operator">==</span> <span class="cm-string">"Hello"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-error"># 获取后缀（文件类型）</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">assert</span> <span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">splitext</span>(<span class="cm-variable">file</span>)[<span class="cm-operator">-</span><span class="cm-number">1</span>] <span class="cm-operator">==</span> <span class="cm-string">".py"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">assert</span> <span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">splitext</span>(<span class="cm-variable">file</span>)[<span class="cm-operator">-</span><span class="cm-number">1</span>][<span class="cm-number">1</span>:] <span class="cm-operator">==</span> <span class="cm-string">"py"</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 153px;"></div><div class="CodeMirror-gutters" style="display: none; height: 153px;"></div></div></div></pre><p>&nbsp;</p></div></div>
+
+<div id='write'  class=''>
+	<h1 id='blog-one-1'><span>content..</span></h1>
+</div>
+
+
+		</div>
+			</div>
+				</div><!-- END container-wrap -->
+
+
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h3>CONTACT ME</h3>
+					<p>If you have any matter to have to tell me,please contact me.</p>
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="col-md-3 col-md-push-1 animate-box">
+					<h3>My Info</h3>
+					<ul class="contact-info">
+						<li><i class="iconfont icon-weizhi"></i><a>Pingyuan County,Dezhou City,Shandong Prov,China</a></li>
+						<li><i class="iconfont icon-youxiang"></i><a>yunshanglanglang@gmail.com</a></li>
+						<li><i class="iconfont icon-weixin"></i><a>13375506196</a></li>
+						<li><i class="iconfont icon-QQ"></i><a>2936826609</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-7 col-md-push-1 animate-box">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Name" id="mName">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Email" id="mEmail">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<textarea name="Message" class="form-control" id="mMessage" cols="30" rows="7" placeholder="Message(255)"></textarea>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="submit" value="Send Message" class="btn btn-primary btn-modify" id="mSend" onclick="getMessage()">
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block">Personal Homepage &copy; 2021.Creator is named CNSS.</small>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->
+
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+
+
+
+
+
+	<!-- jQuery Easing -->
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="../js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="../js/jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="../js/jquery.magnific-popup.min.js"></script>
+	<script src="../js/magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="../js/jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="../js/main.js"></script>
+	<script src="../js/mymessage.js"></script>
+</body>
+
+</html>

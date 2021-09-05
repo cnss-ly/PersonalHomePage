@@ -1,5 +1,43 @@
 import pymysql
-from database_config import connectDatabase,executeInsertsql,executeLookupsql
+from database_config import connectDatabase, executeInsertsql, executeLookupsql
+import time
+
+import os
+
+blogdir = "./static/myblog"
+
+TodayTime = time.localtime(time.time())
+TodayTime = "{}.{}.{}".format(TodayTime[0], TodayTime[1], TodayTime[2])
+print(TodayTime)
+files = os.listdir(blogdir)
+files.remove("blogtemplate.html")
+print(files)
+for i in range(len(files)):
+    splitfile = files[i].split(".")
+    blogtime = "{}.{}.{}".format(splitfile[0], splitfile[1], splitfile[2])
+    # print(blogtime, i)
+    if blogtime == TodayTime and splitfile[-1] == "html":
+        content = []
+        blogtemplate = []
+        with open(os.path.join(blogdir,files[i]),"r") as read:
+            buttle=1
+            for line in read.readlines():
+                if line != "<body class='typora-export'><div class='typora-export-content'>\n" and buttle:
+                    continue
+                else:
+                    buttle=0
+                    content.append(line)
+                if line == "</body>\n":
+                    break
+            print(content)
+        with open(os.path.join(blogdir,"blogtemplate.html"),"r") as read:
+            blogtemplate = read.readlines()
+        with open(os.path.join(blogdir,files[i]),"w") as write:
+            for line in blogtemplate:
+                write.write(line)
+                if line == "<div class='typora-export'><div class='typora-export-content'>\n":
+                    write.writelines(content[1:-1])
+        break
 
 # mysql_info = pymysql.connect(host="localhost",
 #                              user="root",
@@ -51,24 +89,21 @@ from database_config import connectDatabase,executeInsertsql,executeLookupsql
 #     };
 
 
-
 # <div class="desc col-md-5"><h7>&nbsp;</h7></div>
 
-look_sql = f"""
-                    select
-                    *
-                    from
-                    UserInfo
-                    where
-                    username="cnss"
-                    """
-result = executeLookupsql(look_sql)[0]
-print(result)
+# look_sql = f"""
+#                     select
+#                     *
+#                     from
+#                     UserInfo
+#                     where
+#                     username="cnss"
+#                     """
+# result = executeLookupsql(look_sql)[0]
+# print(result)
 # if result!='':
 #     if result
 #         executeInsertsql(insert_sql)
-
-
 
 
 # @web.route('/getChatinput', methods=["get", "post"])
@@ -100,4 +135,3 @@ print(result)
 #     concent = executeLookupsql(look_sql)
 #     print(concent[0])
 #     return concent[0][1]
-

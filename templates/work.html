@@ -25,9 +25,9 @@
 <script src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/respond.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/my.js') }}"></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/my.css') }}"/>
 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mycontact.css') }}"/>
+<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
 
 	</head>
 	<body>
@@ -44,20 +44,12 @@
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
-						<li><a href="index">Home</a></li>
-						<li class="active"><a href="work">Work</a></li>
-						<li class="has-dropdown">
-							<a href="blog">Blog</a>
-							<ul class="dropdown">
-								<li><a href="#">Web Design</a></li>
-								<li><a href="#">eCommerce</a></li>
-								<li><a href="#">Branding</a></li>
-								<li><a href="#">API</a></li>
-							</ul>
-						</li>
-						<li><a href="about">About</a></li>
-						<li><a href="contact">Contact</a></li>
-					</ul>
+							<li><a href="index">Home</a></li>
+							<li class="active"><a href="work">Work</a></li>
+							<li><a href="blog">Blog</a></li>
+							<li><a href="contact">Contact</a></li>
+							<li><a href="about">About</a></li>
+						</ul>
 				</div>
 			</div>
 
@@ -72,11 +64,10 @@
 			   	<li style="background-image: url( {{ url_for('static', filename='images/img_bg_3.jpg') }} );">
 			   		<div class="overlay-gradient"></div>
 		   			<div class="row">
-<!--			   			<div class="col-md-6 col-md-offset-3 slider-text slider-text-bg">-->
 							<div class="col-md-6 col-md-offset-3 slider-text slider-text-bg fh5co-heading">
 			   				<div class="slider-text-inner text-center">
 			   					<h1>Work</h1>
-									<h2>Free html5 templates Made by</h2>
+									<h2>Manage my platform</h2>
 			   				</div>
 			   			</div>
 			   		</div>
@@ -87,12 +78,14 @@
 		<div id="fh5co-work">
 			<div class="row">
 				<div class="col-md-4 text-center animate-box">
-					<a href="work-single.html" class="work" style="background-image: url( {{ url_for('static', filename='images/portfolio-1.jpg') }} );">
+					<a class="work" style="background-image: url( {{ url_for('static', filename='images/portfolio-1.jpg') }} );" id="postblog">
 						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Illustration</span>
+							<h1>Post Blog</h1>
+							<span></span>
 						</div>
 					</a>
+
+
 				</div>
 				<div class="col-md-4 text-center animate-box">
 					<a href="work-single.html" class="work" style="background-image: url( {{ url_for('static', filename='images/portfolio-2.jpg') }} );">
@@ -110,30 +103,6 @@
 						</div>
 					</a>
 				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="work-single.html" class="work" style="background-image: url( {{ url_for('static', filename='images/portfolio-4.jpg') }} );">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Illustration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="work-single.html" class="work" style="background-image: url( {{ url_for('static', filename='images/portfolio-5.jpg') }} );">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Brading</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="work-single.html" class="work" style="background-image: url( {{ url_for('static', filename='images/portfolio-6.jpg') }} );">
-						<div class="desc">
-							<h3>Project Name</h3>
-							<span>Illustration</span>
-						</div>
-					</a>
-				</div>
 			</div>
 		</div>
 	</div><!-- END container-wrap -->
@@ -144,54 +113,92 @@
 
 	<div class="container-wrap">
 	<footer id="fh5co-footer" role="contentinfo">
-		<div class="row">
-			<div class="col-md-3 fh5co-widget">
-				<h4>About CNSS</h4>
-				<p>A Personal PageHome.I will share work and life with you.Perhaps it's empty,but I'm able to enrich constantly.<br> Please like for me</p>
-				<button class="iconfont icon-QQ" style="background-color: white;border-radius: 50%;border:none;"></button>
-			</div>
-			<div class="col-md-3 col-md-push-1">
-				<h4>Latest Posts</h4>
-				<ul class="fh5co-footer-links">
-					<li><a href=https://github.com/>Maximal OpenSource Website</a></li>
-					<li><a href="https://greasyfork.org/zh-CN">1000+ Free Download Templates Scirpt</a></li>
-					<li><a href="https://www.bilibili.com/">Excellent Platform for Learning</a></li>
-					<li><a href="https://www.iconfont.cn/">Download 1000+ icons</a></li>
-				</ul>
-			</div>
 
-			<div class="col-md-3 col-md-push-1">
-				<h4>Links</h4>
-				<ul class="fh5co-footer-links">
-					<li><a href="index">Home</a></li>
-					<li><a href="work">Work</a></li>
-					<li><a href="blog">Blog</a></li>
-					<li><a href="contact">Contact</a></li>
-					<li><a href="about">About me</a></li>
-				</ul>
-			</div>
+		<!-- popwin主体 -->
+				<div id="info" class="popbloginfo">
 
-			<div class="col-md-3">
-				<h4>Contact Information</h4>
-				<ul class="fh5co-footer-links">
-					<li>Pingyuan County,Dezhou City, <br> Shandong Prov,China</li>
-					<li><a href="tel://13375506196">+86 13375506196</a></li>
-					<li><a href="mailto:yunshanglanglang@gmail.com">yunshanglanglang@gmail.com</a></li>
-					<li><a href="https://user.qzone.qq.com/2936826609?source=namecardhoverqzone">3082892425</a></li>
-				</ul>
-			</div>
+					<div id="info-title" class="popbloginfo-title">
+						Blog-Info
+					</div>
 
-		</div>
+					<div class="row">
 
-		<div class="row copyright">
+						<div class="col-md-6">
+					<div id="scroll" class="scroll-container">
+									<div id="blogshowarea" class="scroll-content">
+
+										<h3 style="text-align: center">UNRELEASED</h3>
+										<div style="text-align: center" id="UNRELEASED">
+<!--										....-->
+										</div>
+
+										<HR style="FILTER:alpha(opacity=100,finishopacity=0,style=2)" width="100%" color="#000000" SIZE="10">
+
+										<h3 style="text-align: center">RELEASED</h3>
+										<div style="text-align: center" id="RELEASED">
+<!--										...-->
+										</div>
+
+									</div>
+						<HR style="FILTER:alpha(opacity=100,finishopacity=0,style=2)" width="100%" color="#000000" SIZE="10">
+								</div>
+						</div>
+
+					<div class="col-md-6">
+					<div id="popbloginfo-infoform">
+						<div class="popbloginfo-input">
+							<label>choice：</label>
+							<input id="choiceblog" type="text" placeholder="" class="list-input" />
+						</div>
+
+						<div class="popbloginfo-input">
+							<label>theme：</label>
+							<input id="theme" type="text" placeholder="" class="list-input" />
+						</div>
+
+						<div class="popbloginfo-input">
+							<label>intro：</label>
+							<input id="intro" type="text" placeholder="" class="list-input" />
+						</div>
+
+
+					</div>
+
+						<HR style="FILTER:alpha(opacity=100,finishopacity=0,style=2)" width="100%" color="#000000" SIZE="10">
+
+						<div class="row">
+						<div class="col-md-6">
+					<input type="submit" id="infoSubmit" value="Post" class="popbloginfoSubmit" onclick="postBlog()"/>
+							<br>
+							<br>
+							<input type="submit" id="delSubmit" value="Del" class="popbloginfoSubmit" onclick="delBlog()"/>
+							</div>
+							<div class="col-md-6">
+						<input type="submit" id="updateSubmit" value="Update" class="popbloginfoSubmit" onclick="updateBlog()"/>
+								<br>
+								<br>
+						<input type="submit" id="changeinfoSubmit" value="changeInfo" class="popbloginfoSubmit" onclick="changeinfoBlog()"/>
+						</div>
+
+					</div>
+
+						</div>
+						</div>
+				</div>
+
+		<HR style="FILTER:alpha(opacity=100,finishopacity=0,style=2)" width="100%" color="#000000" SIZE="10">
+
+<div class="row copyright">
 			<div class="col-md-12 text-center">
 				<p>
 					<small class="block">Personal Homepage &copy; 2021.Creator is named CNSS.</small>
 				</p>
 			</div>
 		</div>
+
 	</footer>
 </div><!-- END container-wrap -->
+
 </div>
 
 <div class="gototop js-top">
@@ -217,7 +224,8 @@
 <!-- Main -->
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
-
+<script src="{{ url_for('static', filename='js/mywork.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mypopwin.css') }}"/>
 	</body>
 </html>
 

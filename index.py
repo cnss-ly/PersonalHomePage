@@ -3,6 +3,7 @@ from database_config import executeInsertsql, executeLookupsql
 from flask_socketio import SocketIO, emit
 import base64
 from PIL import Image
+import time
 import os
 
 web = Flask(__name__)
@@ -125,7 +126,7 @@ def signIn():
         chat_100 = executeLookupsql(find_sql)
         print(chat_100)
 
-        replay = jsonify({'id': result[0],'username': result[2], 'infoyouxiang': result[5], 'infoweizhi': result[4],
+        replay = jsonify({'id': result[0], 'username': result[2], 'infoyouxiang': result[5], 'infoweizhi': result[4],
                           'infoshouji': result[6], 'chathead': result[1], 'chat_100': chat_100})
         return replay
     else:
@@ -218,6 +219,87 @@ def mtest_message(message):
     event_name = 'showchatinput'
     emit(event_name, {'userhead': userhead, 'content': content, 'username': username}, broadcast=True,
          namespace=name_space)
+
+
+@web.route('/showBlog', methods=["get", "post"])
+def showBlog():
+    blogdir = "./static/myblog"
+    files = os.listdir(blogdir)
+    files.remove("blogtemplate.html")
+    unreleasedBlogs = []
+    releasedBlogs = []
+    for file in files:
+        temp = file.split(".")
+        if temp[-1] == "html":
+            if temp[0][0] == "_":
+                releasedBlogs.append(file[1:])
+            else:
+                unreleasedBlogs.append(file)
+    print(unreleasedBlogs)
+    print(releasedBlogs)
+    return jsonify({"unreleasedBlogs": unreleasedBlogs, "releasedBlogs": releasedBlogs})
+
+
+@web.route('/postBlog', methods=["get", "post"])
+def postBlog():
+    choiceblog = request.values.get("choiceblog")
+    theme = request.values.get("theme")
+    intro = request.values.get("intro")
+    print(choiceblog)
+    blogdir = "./static/myblog"
+    content = []
+    with open(os.path.join(blogdir, choiceblog), "r") as read:
+        buttle = 1
+        for line in read.readlines():
+            if line != "<body class='typora-export'><div class='typora-export-content'>\n" and buttle:
+                continue
+            else:
+                buttle = 0
+                content.append(line)
+            if line == "</body>\n":
+                break
+        print(content)
+    with open(os.path.join(blogdir, "blogtemplate.html"), "r") as read:
+        blogtemplate = read.readlines()
+    if os.path.exists(os.path.join(blogdir, choiceblog)):
+        os.remove(os.path.join(blogdir, choiceblog))
+    else:
+        print("The file does not exist.")
+
+    _choiceblog = "_" + choiceblog
+    with open(os.path.join(blogdir, _choiceblog), "x") as write:
+        for line in blogtemplate:
+            write.write(line)
+            if line == "<div class='typora-export'><div class='typora-export-content'>\n":
+                write.writelines(content[1:-1])
+
+    month = {"1": "Jan.", "2": "Feb.", "3": "Mar.", "4": "Apr.", "5": "May.", "6": "Jun.", "7": "Jul.", "8": "Aug.",
+             "9": "Sept.", "10": "Oct.", "11": "Nov.", "12": "Dec."}
+    _time = choiceblog.split(".")
+    vartime = month[_time[1]]+" "+_time[2]+"th"+" "+_time[0]
+
+    insert_sql = f"""
+                    insert into
+                    BlogInfo
+                    (filename,theme,intro,vartime)
+                    value
+                    (\"{choiceblog}\",\"{theme}\",\"{intro}\",\"{vartime}\")
+                    """
+    print(insert_sql)
+    executeInsertsql(insert_sql)
+    return '0'
+
+@web.route('/blogCard', methods=["get", "post"])
+def blogCard():
+    look_sql = f"""
+                select
+                *
+                from
+                BlogInfo
+                """
+    result = executeLookupsql(look_sql)
+    print(result)
+    return jsonify({"blogcards":result})
 
 
 if __name__ == '__main__':

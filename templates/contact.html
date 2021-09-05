@@ -24,14 +24,16 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 	<!--		myicon-->
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/iconfont.css') }}" />
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/popwin.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/mypopwin.css') }}" />
 	<!-- Modernizr JS -->
 	<script src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/respond.min.js') }}"></script>
 	<script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="//cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"></script>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/my.css') }}" />
 
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/mycontact.css') }}" />
+
+<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
 
 
 </head>
@@ -51,18 +53,9 @@
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
 								<li><a href="index">Home</a></li>
-								<li><a href="work">Work</a></li>
-								<li class="has-dropdown">
-									<a href="blog">Blog</a>
-									<ul class="dropdown">
-										<li><a href="#">Web Design</a></li>
-										<li><a href="#">eCommerce</a></li>
-										<li><a href="#">Branding</a></li>
-										<li><a href="#">API</a></li>
-									</ul>
-								</li>
-								<li><a href="about">About</a></li>
-								<li class="active"><a href="contact">Contact</a></li>
+							<li><a href="blog">Blog</a></li>
+							<li class="active"><a href="contact">Contact</a></li>
+							<li><a href="about">About</a></li>
 							</ul>
 						</div>
 					</div>
@@ -81,7 +74,7 @@
 									<div class="col-md-6 col-md-offset-3 slider-text slider-text-bg fh5co-heading">
 										<div class="slider-text-inner text-center">
 											<h1>Chat</h1>
-											<h2>Pure chat,let the heart closer</h2>
+											<h2>Pure chat,let the heart closer.</h2>
 										</div>
 									</div>
 								</div>
@@ -159,31 +152,31 @@
 
 
 				<!-- info主体 -->
-				<div id="info" class="popwin">
-					<!-- 登陆框标题 -->
-					<div id="info-title" class="popwin-title">
+				<div id="info" class="popinfowin">
+					<!-- info标题 -->
+					<div id="info-title" class="popinfowin-title">
 						Info
 						<span><a id="closeinfo" href="javascript:void(0)">close</a></span>
 					</div>
-					<!-- 登陆框表单 -->
-					<div id="popwin-infoform">
-						<div class="popwin-input">
+					<!-- info表单 -->
+					<div id="popinfowin-infoform">
+						<div class="popinfowin-input">
 							<label>local：</label>
 							<input id="weizhi" type="text" placeholder="" class="list-input" />
 						</div>
 
-						<div class="popwin-input">
+						<div class="popinfowin-input">
 							<label>email：</label>
 							<input id="youxiang" type="text" placeholder="" class="list-input" />
 						</div>
 
-						<div class="popwin-input">
+						<div class="popinfowin-input">
 							<label>phone：</label>
 							<input id="shouji" type="text" placeholder="" class="list-input" />
 						</div>
 					</div>
-					<!-- 登陆框登陆按钮 -->
-					<input type="submit" id="infoSubmit" value="save" class="popwinSubmit" onclick="saveInfo()"/>
+					<!-- info按钮 -->
+					<input type="submit" id="infoSubmit" value="save" class="popinfowinSubmit" onclick="saveInfo()"/>
 				</div>
 
 
@@ -257,7 +250,7 @@
 						<li><i class="iconfont icon-weizhi"></i><a>Pingyuan County,Dezhou City,Shandong Prov,China</a></li>
 						<li><i class="iconfont icon-youxiang"></i><a>yunshanglanglang@gmail.com</a></li>
 						<li><i class="iconfont icon-weixin"></i><a>13375506196</a></li>
-						<li><i class="iconfont icon-QQ"></i><a>3082892425</a></li>
+						<li><i class="iconfont icon-QQ"></i><a>2936826609</a></li>
 					</ul>
 				</div>
 
@@ -324,9 +317,10 @@
 	<script src="{{ url_for('static', filename='js/jquery.countTo.js') }}"></script>
 	<!-- Main -->
 	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/login.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/my.js') }}"></script>
+
+	<script src="{{ url_for('static', filename='js/mychat.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/mylogin.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/mymessage.js') }}"></script>
 </body>
 
 </html>
